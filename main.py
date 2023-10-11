@@ -25,9 +25,7 @@ def on_key_press(event):
         window.after_cancel(timer)
         timer_label.config(fg='black')
     start_timer(5)
-
     # print("You started typing")
-    # symbol_in_text += 1
     # print(symbol_in_text)
 
 def start_timer(count):
@@ -53,8 +51,6 @@ def start_timer(count):
 window=tk.Tk()
 window.config(width=1024, height=720, padx=50, pady=50)
 window.title('The Most Dangerous Writing App')
-# window.config(bg='black')
-
 #Frames
 top_frame=tk.Frame(window, height=100,width=500,bg='grey',)
 top_frame.grid(row=0,column=1,pady=20,sticky="nsew")
@@ -85,15 +81,9 @@ get_button.grid(row=1,column=0)
 clear_button=tk.Button(middle_frame,text='Clear',command=clear)
 clear_button.grid(row=2,column=0,pady=10)
 
-# symbol_in_text=0
-# if symbol_in_text ==0:
 text.bind("<KeyPress>", on_key_press)
 
 # Configure row and column weights to make frames expand
 window.grid_rowconfigure(1, weight=1)
 window.grid_columnconfigure(1, weight=1)
 window.mainloop()
-# time.sleep(3)
-# if len(text.get(1.0,'end')) > 1:
-#     print(len(text.get(1.0,'end')))
-#     print('you started typing')
