@@ -63,7 +63,7 @@ left_frame.grid(row=1,column=0,padx=20,sticky="nsew")
 
 #Labels
 
-top_label=tk.Label(top_frame,text='Write whatever you want!✨',bg='grey',justify='center', anchor='center',font=('Courier',14,'bold'))
+top_label=tk.Label(top_frame,text='Write whatever you want!',bg='grey',justify='center', anchor='center',font=('Courier',14,'bold'))
 top_label.grid(row=0,column=0,sticky="nsew", padx=250,pady=20)
 
 timer_label=tk.Label(left_frame,text='',bg='grey')
