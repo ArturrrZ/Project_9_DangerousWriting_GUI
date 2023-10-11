@@ -8,7 +8,10 @@ def get():
         window.after_cancel(timer)
         timer_label.config(text='Timer',fg='black')
     typed_text=text.get(1.0,"end")
+    text.delete(1.0, "end")
     print(typed_text)
+    with open('typed_text.txt','a' ) as doc:
+        doc.write(f"{typed_text}\n---------------------\n")
 def clear():
     global timer
     if timer is not None:
@@ -23,7 +26,7 @@ def on_key_press(event):
         timer_label.config(fg='black')
     start_timer(5)
 
-    print("You started typing")
+    # print("You started typing")
     # symbol_in_text += 1
     # print(symbol_in_text)
 
@@ -41,11 +44,12 @@ def start_timer(count):
     if count > 0:
         global timer
         timer=window.after(1000,start_timer, count-1)
-        print(timer)
-        print(type(timer))
+        # print(timer)
+        # print(type(timer))
     if count == 0:
         clear()
         messagebox.showerror(title='FAILED',message='You did not type for 5 seconds \nYou LOST your text')
+
 window=tk.Tk()
 window.config(width=1024, height=720, padx=50, pady=50)
 window.title('The Most Dangerous Writing App')
@@ -75,7 +79,7 @@ text=tk.Text(middle_frame,height=30,width=100)
 text.grid(row=0,column=0,pady=10,padx=10)
 
 #Buttons
-get_button=tk.Button(middle_frame,text='Get',command=get,width=20)
+get_button=tk.Button(middle_frame,text='Save',command=get,width=20)
 get_button.grid(row=1,column=0)
 
 clear_button=tk.Button(middle_frame,text='Clear',command=clear)
